@@ -9,7 +9,7 @@ var resetButton = document.querySelector("#reset");
 var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
 
-
+// easy button
 easyBtn.addEventListener("click", function() {
     easyBtn.classList.add("selected");
     hardBtn.classList.remove("selected");
@@ -24,8 +24,9 @@ easyBtn.addEventListener("click", function() {
             squares[i].style.display = "none";
         }
     }
-})
+});
 
+// hard button
 hardBtn.addEventListener("click", function() {
     easyBtn.classList.remove("selected");
     hardBtn.classList.add("selected");
@@ -37,8 +38,10 @@ hardBtn.addEventListener("click", function() {
         squares[i].style.backgroundColor = colors[i];
         squares[i].style.display = "block";
     }
-})
+});
 
+
+// reset button
 resetButton.addEventListener("click", function(){
     // generate all new colors
     colors = generateRandomColors(numSquares);
@@ -46,12 +49,15 @@ resetButton.addEventListener("click", function(){
     pickedColor = pickColor();
     //change color display to match picked color
     colorDisplay.textContent = pickedColor;
+    this.textContent = "New Colors";
+    // empty message display string
+    messageDisplay.textContent = "";
     //change colors of square
     for(var i=0; i < squares.length; i++){
         squares[i].style.backgroundColor = colors[i];
     }    
     h1.style.backgroundColor = "#232323";
-})
+});
 
 colorDisplay.textContent = pickedColor;
 
